@@ -7,20 +7,18 @@ import pagination from './pagination'
 
 import { loading } from '../images'
 
+export const pjax = new Pjax({
+  elements: 'a[href]:not([href^="#"])',
+  debug: false,
+  cacheBust: false,
+  history: true,
+  selectors: [
+    'main.ha__main',
+    '.ha__header-navbar .navbar-nav'
+  ]
+})
+
 export default () => {
-  const pjax = new Pjax({
-    elements: 'a[href]:not([href^="#"])',
-    debug: false,
-    cacheBust: false,
-    history: true,
-    selectors: [
-      'main.ha__main'
-    ]
-  })
-
-  // 实例化不存在的 dom
-  pjax.refresh(document.querySelector('.pagination'))
-
   // 在Pjax请求开始后触发
   document.addEventListener('pjax:send', () => {
     // 禁止滚动
@@ -48,13 +46,13 @@ export default () => {
     const tooltipsList = [].slice.call(document.querySelectorAll('.tooltip.show'))
     if (tooltipsList.length !== 0) tooltipsList.forEach(block => block.remove())
     // 修复移动端打开页面菜单打开的问题
-    const mobileDom = document.querySelector('.navbar-toggler')
-    if (!mobileDom.classList.contains('collapsed')) mobileDom.click()
-
+    const mobileNav = document.querySelector('.navbar-toggler')
+    if (mobileNav.getAttribute('aria-expanded') === 'true') mobileNav.click()
     // // support 百度统计 / google analytics
     if (typeof _hmt !== 'undefined') _hmt.push(['_trackPageview', location.pathname + location.search])
     if (typeof ga !== 'undefined') ga('send', 'pageview', location.pathname + location.search)
-
+    // 实例化不存在的 dom - 导航栏
+    pjax.refresh(document.querySelector('.ha__main-post-nav .pagination'))
     // 移除 loading 动画
     setTimeout(() => {
       document.querySelector('.ha__loading').classList.remove('fade-in')

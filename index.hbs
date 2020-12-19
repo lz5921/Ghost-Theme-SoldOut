@@ -5,7 +5,7 @@ into the {body} of the default.hbs template --}}
 
 <main class="ha__main">
   <section class="ha__main-hero d-flex justify-content-center align-items-center">
-    <div class="ha__main-hero-picture"></div>
+    {{> header-background background=@site.cover_image}} {{!--Special header-background.hbs partial to generate the background image--}}
     <div class="ha__main-hero-content text-center">
       <h1 class="title">{{ @site.title }}</h1>
       <div class="description">{{ @site.description }}</div>

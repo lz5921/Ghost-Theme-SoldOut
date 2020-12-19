@@ -47,9 +47,13 @@
     }
   }
 
-  .search-tags {
+  .search-tags,
+  .search-meta,
+  .search-results {
     max-width: 30rem;
-    margin: 1rem auto 2rem;
+    margin: 1rem auto 1rem;
+  }
+  .search-tags {
     .tag-item {
       color: #{var(--color-text-primary)};
       margin: 0.25rem;
@@ -57,6 +61,23 @@
         color: #9ed0ff;
         content: "#";
         margin-right: 0.25rem;
+      }
+    }
+  }
+
+  .search-meta {}
+  .search-results {
+    margin-top: 0;
+    .ghost-search-item {
+      color: #{var(--color-text-primary)};
+      .search-item-title {
+        display: block;
+        font-size: 1.5rem;
+      }
+      .search-item-date {
+        display: block;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
       }
     }
   }

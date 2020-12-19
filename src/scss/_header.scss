@@ -1,26 +1,33 @@
 .ha__header {
-  .blog-name {
-    color: #{var(--color-text-primary)};
-    font-size: 1.5rem;
-    padding-bottom: 0;
-  }
   .ha__header-navbar {
     background-color: #{var(--background-color)};
+    .blog-name {
+      color: #{var(--color-text-primary)};
+      font-size: 1.5rem;
+      padding-bottom: 0;
+    }
     .navbar-nav {
       .nav-item {
+        &.active {
+          .nav-link {
+          }
+        }
         .nav-link {
           color: #{var(--color-text-primary)};
           padding-bottom: 0;
         }
       }
     }
-  }
-  &-right {
-    .btn {
+    .navbar-toggler {
       color: #{var(--color-text-primary)};
     }
-    &-search {
-      background-color: transparent;
+    .ha__header-right {
+      .btn {
+        color: #{var(--color-text-primary)};
+      }
+      &-search {
+        background-color: transparent;
+      }
     }
   }
 }
