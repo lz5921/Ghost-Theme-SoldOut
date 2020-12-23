@@ -13,8 +13,8 @@
     color: #90a4ae;
     background: #fafafa;
     font-family: Courier, 'Courier New', monospace;
-    font-size: 1em;
-    line-height: 1.5em;
+    font-size: 1rem;
+    line-height: 1.5rem;
     tab-size: 4;
     hyphens: none;
   }
@@ -37,14 +37,14 @@
 
   :not(pre) > code[class*="language-"] {
     white-space: normal;
-    border-radius: 0.2em;
-    padding: 0.1em;
+    border-radius: 0.2rem;
+    padding: 0.1rem;
   }
 
   pre[class*="language-"] {
     overflow: auto;
     position: relative;
-    margin: 0.5em 0;
+    margin: 0.5rem 0;
     padding: 2.725rem 1rem 1.25rem 3.8rem;
   }
 
@@ -216,6 +216,7 @@
       justify-content: space-between;
       padding: 0.25rem 1.725rem;
       width: 100%;
+      font-size: 1rem;
       .toolbar-item {
         .show-language {
           text-transform: uppercase;
@@ -257,8 +258,8 @@
     color: #c3cee3;
     background-color: #3a3c3d;
     font-family: Courier, 'Courier New', monospace;
-    font-size: 1em;
-    line-height: 1.5em;
+    font-size: 1rem;
+    line-height: 1.5rem;
     tab-size: 4;
     hyphens: none;
   }
@@ -272,8 +273,8 @@
 
   :not(pre) > code[class*="language-"] {
     white-space: normal;
-    border-radius: 0.2em;
-    padding: 0.1em;
+    border-radius: 0.2rem;
+    padding: 0.1rem;
   }
 
   .language-css > code,

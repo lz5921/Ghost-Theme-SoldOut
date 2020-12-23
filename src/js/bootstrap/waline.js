@@ -11,7 +11,7 @@ export default () => {
       // eslint-disable-next-line no-undef
       new Waline({
         el: '#vcomments',
-        serverURL: 'https://waline-test.vercel.app',
+        serverURL: 'https://iiong-comments.vercel.app',
         avatar: 'mm',
         visitor: true,
         highlight: true,

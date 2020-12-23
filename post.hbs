@@ -26,18 +26,18 @@ into the {body} of the default.hbs template --}}
           <span class="meta-cut">•</span>
           {{#if primary_tag}}<span class="meta meta-tag">{{#primary_tag}}{{name}}{{/primary_tag}}</span>{{/if}}
           <span class="meta-cut">•</span>
-          <span id="{{url}}" class="meta meta-read leancloud_visitors" data-flag-title="{{title}}">阅读量 <a class="leancloud-visitors-count"></a></span>
+          <span id="{{url}}" class="meta meta-read leancloud_visitors" data-flag-title="{{title}}">阅读量 <span class="leancloud-visitors-count"></span></span>
         </div>
         <div class="ha__main-article-main my-5 row">
-          <div class="col">
-            <article class="ha__main-article-content">{{content}}</article>
+          <div class="col-12 col-xl-10">
+            <article class="ha__main-article-content ha__main-article-content-default">{{content}}</article>
           </div>
           <div class="col-12 col-xl-2">
             <div class="ha__article-sidebar">
               <aside class="toc-container toc d-none d-xl-block"></aside>
               <div class="ha__article-share d-xl-flex flex-row flex-xl-column mt-3 text-center text-xl-left">
-                <a data-toggle="tooltip"
-                   data-placement="right"
+                <a data-bs-toggle="tooltip"
+                   data-bs-placement="right"
                    title="分享到微博"
                    href="https://service.weibo.com/share/share.php?title={{title}}&url={{url absolute="true"}}&pic={{feature_image}}"
                    target="_blank"
@@ -45,8 +45,8 @@ into the {body} of the default.hbs template --}}
                 >
                   <i class="fab fa-weibo share-icon"></i>
                 </a>
-                <a data-toggle="tooltip"
-                   data-placement="right"
+                <a data-bs-toggle="tooltip"
+                   data-bs-placement="right"
                    title="分享到QQ"
                    href="https://connect.qq.com/widget/shareqq/index.html?url={{url absolute="true"}}&title={{title}}&summary={{excerpt}}&pics={{feature_image}}&site={{@site.title}}"
                    target="_blank"
@@ -54,16 +54,16 @@ into the {body} of the default.hbs template --}}
                 >
                   <i class="fab fa-qq share-icon"></i>
                 </a>
-                <a data-toggle="tooltip"
-                   data-placement="right"
+                <a data-bs-toggle="tooltip"
+                   data-bs-placement="right"
                    title="<div class='post-share-wechat-qr'></div>"
                    data-post-url="{{url absolute="true"}}"
                    class="ha__article-share-item ha__article-share-item-wechat btn d-inline-flex justify-content-center align-items-center mt-0 mt-xl-3 mx-2 mx-xl-0 shadow"
                 >
                   <i class="fab fa-weixin share-icon"></i>
                 </a>
-                <a data-toggle="tooltip"
-                   data-placement="right"
+                <a data-bs-toggle="tooltip"
+                   data-bs-placement="right"
                    title="分享到 Twitter"
                    href="https://twitter.com/share?text={{title}}&url={{url absolute="true"}}"
                    target="_blank"

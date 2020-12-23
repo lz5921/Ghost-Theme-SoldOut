@@ -12,7 +12,7 @@ const initGhostSearch = () => {
     new GhostSearch({
       host: [location.protocol, '//', location.host].join(''),
       version: 'v3',
-      key: '86a0e6d520808e8fe0a5a788a9',
+      key: '99efee9603c92e5cd04501f069',
       url: [location.protocol, '//', location.host].join(''),
       trigger: 'focus',
       defaultValue: '',

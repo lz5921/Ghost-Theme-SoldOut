@@ -6,9 +6,9 @@ import toc from './post-toc'
 import pagination from './pagination'
 import templateLinks from './template-links'
 import postShare from './post-share'
-import waline from './waline'
-
-import { loading } from '../images'
+import waLine from './waline'
+import global from './global'
+import zoomImage from './post-image'
 
 export const pjax = new Pjax({
   elements: 'a[href]:not([href^="#"])',
@@ -17,7 +17,8 @@ export const pjax = new Pjax({
   history: true,
   selectors: [
     'main.ha__main',
-    '.ha__header-navbar .navbar-nav'
+    '.ha__header-navbar .navbar-nav',
+    '.ha__footer .ha__footer-nav'
   ]
 })
 
@@ -29,13 +30,15 @@ export default () => {
     // 添加 loading
     const loadingEle = document.createElement('div')
     loadingEle.classList = 'ha__loading position-fixed d-flex flex-column justify-content-center align-items-center animated fade-in'
-    loadingEle.innerHTML = `<img src="${loading()}" class="loading-image" alt="loading image"><div class="loading-text">正在加载数据中...</div>`
+    loadingEle.innerHTML = `<img src="/assets/loading.gif" class="loading-image" alt="loading image"><div class="loading-text">正在加载数据中...</div>`
     document.body.appendChild(loadingEle)
   })
 
   // 在Pjax请求完成后触发，无论失败还是成功
   document.addEventListener('pjax:complete', () => {
-    waline()
+    global()
+    zoomImage()
+    waLine()
     pagination()
     postShare()
     prism()

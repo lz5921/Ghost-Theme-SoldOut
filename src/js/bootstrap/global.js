@@ -1,4 +1,5 @@
 import { loadScripts } from '../utils'
+import baseToast from '../toasts'
 
 export default () => {
   // 百度推送
@@ -27,5 +28,12 @@ export default () => {
       block.innerHTML = block.innerHTML.replace(/\[\s]\s/gm, '<span class="span-todo-checkbox"></span><input type="checkbox" disabled class="todo-list-input"/>&nbsp;')
       block.parentElement.classList.add('todo-list')
     }
+  })
+
+  // 通知
+  baseToast({
+    content: '本博客最近大升级，如遇到莫名其妙可以在任何文章之下留言反馈！',
+    time: '2020-12-23T23:00:00',
+    key: 'hello'
   })
 }

@@ -8,7 +8,7 @@ const resolve = dir => {
 }
 
 const miniCssExtractPlugin = new MiniCssExtractPlugin({
-  filename: 'assets/[name].[hash].min.css'
+  filename: 'assets/[name].css'
 })
 
 const copyWebpackPlugin = new CopyWebpackPlugin({
@@ -20,6 +20,10 @@ const copyWebpackPlugin = new CopyWebpackPlugin({
     {
       from: resolve('../*.hbs'),
       to: resolve('../dist')
+    },
+    {
+      from: resolve('../src/assets/loading.gif'),
+      to: resolve('../dist/assets')
     },
     {
       from: resolve('../package.json'),
@@ -41,7 +45,7 @@ module.exports = {
     ]
   },
   output: {
-    filename: 'assets/[name].[hash].min.js',
+    filename: 'assets/[name].js',
     path: resolve('../dist/')
   },
   plugins: [

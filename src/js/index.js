@@ -13,6 +13,8 @@ import postShare from './bootstrap/post-share'
 import templateLinks from './bootstrap/template-links'
 import waLine from './bootstrap/waline'
 import musicPlayer from './bootstrap/musicplayer'
+import global from './bootstrap/global'
+import zoomImage from './bootstrap/post-image'
 
 // ele.scrollIntoView 兼容
 // Safari 无效需要引入 polyfill
@@ -21,6 +23,8 @@ smoothScroll.polyfill()
 prefersColorScheme()
 musicPlayer()
 
+global()
+zoomImage()
 waLine()
 pagination()
 postShare()

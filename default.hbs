@@ -10,9 +10,10 @@
   <meta name="renderer" content="webkit" />
 
   {{!-- 基础信息 --}}
-  <title>{{meta_title}}</title>
+  <title>{{meta_title page=(t " - 第%页")}}{{#is "post"}} – {{@site.title}}{{/is}}</title>
   <meta name="HandheldFriendly" content="True" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+  <meta name="keywords" content="淮城一只猫,淮城,IT博客,个人博客,王瑾,盒子丶先生,WEB平台,BOX-ROM,BoxMod">
 
   {{!-- 样式脚本 --}}
   <link id="fontawesome-css" rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css" />

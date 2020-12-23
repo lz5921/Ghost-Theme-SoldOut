@@ -86,7 +86,7 @@ export const loadStyles = (scripts) => {
  * @param {string} cFormat
  * @returns {string | null}
  */
-export const parseTime = (time, cFormat) => {
+export function parseTime (time, cFormat) {
   if (arguments.length === 0) {
     return null
   }

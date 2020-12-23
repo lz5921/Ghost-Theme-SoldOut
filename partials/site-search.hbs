@@ -7,9 +7,9 @@
     <input id="ghost-search-field" class="form-control" type="text" placeholder="请输入搜索关键词..." aria-label="search" aria-describedby="search">
   </div>
   <div class="search-tags">
-    {{#get "tags" limit="all" filter="name:-['菜单1', '菜单2', '菜单3']"}}
+    {{#get "tags" limit="all" filter="name:-['编程技术', '奇淫技巧', '生活杂记']"}}
       {{#foreach tags}}
-        <a href="{{url}}" class="tag-item" data-toggle="tooltip" data-placement="bottom" title="查看关于 {{name}} 标签的文章">
+        <a href="{{url}}" class="tag-item" data-bs-toggle="tooltip" data-bs-placement="bottom" title="查看关于 {{name}} 标签的文章">
           {{name}}
         </a>
       {{/foreach}}

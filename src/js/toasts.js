@@ -9,7 +9,7 @@ const baseToast = (options) => {
   const defaultOptions = {
     animation: true,
     autohide: true,
-    delay: 500000
+    delay: 5000
   }
   const toastId = options.key === undefined ? console.warn('未填写 Toast 节点 Key') : options.key
   const toastContent = options.content === undefined ? console.warn('未填写 Toast 内容') : options.content
