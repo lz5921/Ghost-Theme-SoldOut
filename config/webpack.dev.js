@@ -7,8 +7,7 @@ const resolve = dir => {
 }
 
 const miniCssExtractPlugin = new MiniCssExtractPlugin({
-  filename: '[name].css',
-  chunkFilename: '[id].css'
+  filename: '[name].css'
 })
 
 const esLintPlugin = new ESLintPlugin({
@@ -30,9 +29,6 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: resolve('../assets/')
-  },
-  externals: {
-    bootstrap: 'bootstrap'
   },
   devtool: 'source-map',
   plugins: [

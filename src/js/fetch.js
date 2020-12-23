@@ -18,8 +18,8 @@ export default (options) => {
       case 'json':
         res = response.json()
         break
-      case 'blob':
-        res = response.blob()
+      default:
+        res = response.json()
         break
     }
     return res

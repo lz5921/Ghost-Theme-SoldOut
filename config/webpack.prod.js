@@ -1,52 +1,51 @@
 const path = require('path')
-const ESLintPlugin = require('eslint-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const resolve = dir => {
   return path.join(__dirname, dir)
 }
 
 const miniCssExtractPlugin = new MiniCssExtractPlugin({
-  filename: './assets/css/styles.css'
-  // allChunks: true
+  filename: 'assets/[name].[hash].min.css'
 })
 
 const copyWebpackPlugin = new CopyWebpackPlugin({
-  patterns: [
+  patterns:[
     {
-      from: resolve('../src/html/'),
-      to: resolve('../dist/')
+      from: resolve('../partials/'),
+      to: resolve('../dist/partials')
+    },
+    {
+      from: resolve('../*.hbs'),
+      to: resolve('../dist')
+    },
+    {
+      from: resolve('../package.json'),
+      to: resolve('../dist')
+    },
+    {
+      from: resolve('../LICENSE'),
+      to: resolve('../dist')
     }
   ]
 })
 
-const esLintPlugin = new ESLintPlugin({
-  emitWarning: true,
-  emitError: true,
-  failOnWarning: false,
-  failOnError: false
-})
-
-const getEntries = () => {
-  return [
-    './src/js/index.js',
-    './src/scss/index.scss'
-  ]
-}
-
 module.exports = {
   mode: 'production',
-  entry: getEntries(),
-  output: {
-    path: path.resolve(__dirname, '../dist'),
-    filename: './assets/js/bundle.js'
+  entry: {
+    'sold-out': [
+      './src/js/index.js',
+      './src/scss/index.scss'
+    ]
   },
-  externals: {
-    bootstrap: 'bootstrap'
+  output: {
+    filename: 'assets/[name].[hash].min.js',
+    path: resolve('../dist/')
   },
   plugins: [
-    esLintPlugin,
+    new CleanWebpackPlugin(),
     miniCssExtractPlugin,
     copyWebpackPlugin
   ],
@@ -65,13 +64,27 @@ module.exports = {
       {
         test: /\.scss$/i,
         use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
           {
-            loader: "sass-loader",
+            loader: MiniCssExtractPlugin.loader,
             options: {
-              sourceMap: false,
+            }
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: false
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: false
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: false
             }
           }
         ]

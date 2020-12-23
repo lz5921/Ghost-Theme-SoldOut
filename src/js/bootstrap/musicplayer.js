@@ -1,6 +1,35 @@
 import { loadScripts, loadStyles } from '../utils'
 import fetch from '../fetch'
 
+/**
+ * 根据歌单信息获取详细信息
+ */
+function getPlayerList(playerId) {
+  return new Promise(async function(resolve) {
+    const infoList = await fetch({
+      url: `https://api.imjad.cn/cloudmusic/?type=playlist&id=${playerId}`
+    })
+    const newList = await Promise.all(infoList.playlist.tracks.map(async function(item) {
+      const songUrl = await fetch({
+        url: `https://api.imjad.cn/cloudmusic/?type=song&id=${item.id}&br=128000`
+      })
+      const songLrc = await fetch({
+        url: `https://api.imjad.cn/cloudmusic/?type=lyric&id=${item.id}`
+      })
+      const playList = {
+        id: item.id,
+        name: item.name,
+        cover: item.al.picUrl,
+        artist: item.ar.map(i => i.name).join(' & ')
+      }
+      if (songUrl.code === 200) playList.url = songUrl.data[0].url
+      if (songLrc.code === 200) playList.lrc = songLrc.lrc.lyric
+      return playList
+    }))
+    resolve(newList.filter(i => i.url))
+  })
+}
+
 export default () => {
   const playerEle = document.getElementById('player')
   if (playerEle !== null) return
@@ -13,34 +42,22 @@ export default () => {
   loadScripts([{
     name: 'player-js',
     path: 'https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js'
-  }]).then(() => {
-    // todo 网易云音乐支持
-    // fetch({
-    //   url: 'https://api.imjad.cn/cloudmusic/?type=playlist&id=5392087441&br=320000'
-    // }).then(({ playlist }) => {
-    //   console.log(playlist.tracks)
-    // })
+  }]).then(async function() {
+    const playerList = await getPlayerList('5392087441')
     const playerWrapper = document.createElement('div')
     playerWrapper.id = 'player'
     playerWrapper.className = 'player-wrapper'
     document.querySelector('body').appendChild(playerWrapper)
 
+    // eslint-disable-next-line no-undef
     new APlayer({
       container: document.getElementById('player'),
       fixed: true,
-      lrcType: 3,
+      lrcType: 1,
       theme: '#ad7a86',
       order: 'list',
       autoplay: true,
-      audio: [
-        {
-          name: 'Sold Out',
-          artist: 'Hawk Nelson',
-          url: 'https://raw.githubusercontent.com/JaxsonWang/jaxsonwang.github.io/master/music/Sold%20Out.mp3',
-          cover: 'https://raw.githubusercontent.com/JaxsonWang/jaxsonwang.github.io/master/music/Sold%20Out.jpeg',
-          lrc: 'https://raw.githubusercontent.com/JaxsonWang/jaxsonwang.github.io/master/music/Sold%20Out.lrcx'
-        }
-      ]
+      audio: playerList
     })
   })
 }
