@@ -56,7 +56,7 @@ export default () => {
       lrcType: 1,
       theme: '#ad7a86',
       order: 'list',
-      autoplay: true,
+      autoplay: false,
       audio: playerList
     })
   })
