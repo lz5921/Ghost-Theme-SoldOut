@@ -43,7 +43,8 @@ export default () => {
     name: 'player-js',
     path: 'https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js'
   }]).then(async function() {
-    const playerList = await getPlayerList('5392087441')
+    const musicPlayerList = window.SoldOutConfigMusicPlayerList || '5392087441'
+    const playerList = await getPlayerList(musicPlayerList)
     const playerWrapper = document.createElement('div')
     playerWrapper.id = 'player'
     playerWrapper.className = 'player-wrapper'

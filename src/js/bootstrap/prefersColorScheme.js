@@ -21,15 +21,7 @@ export default () => {
   // 初始化
   darkSwitch()
   // 监听系统风格切换
-  // window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-  //   if (event.matches) {
-  //     console.log('🎉 Dark mode is supported')
-  //     //dark mode
-  //   } else {
-  //     //light mode
-  //     console.log('🎉 Light mode is supported')
-  //   }
-  // })
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => darkSwitch())
   // 设置主题
   const darkToggleDom = document.querySelector('.dark-click-action')
   let style = window.matchMedia('(prefers-color-scheme: dark)').matches

@@ -15,23 +15,23 @@ const copyWebpackPlugin = new CopyWebpackPlugin({
   patterns:[
     {
       from: resolve('../partials/'),
-      to: resolve('../dist/partials')
+      to: resolve('../sold-out/partials')
     },
     {
       from: resolve('../*.hbs'),
-      to: resolve('../dist')
-    },
-    {
-      from: resolve('../src/assets/loading.gif'),
-      to: resolve('../dist/assets')
+      to: resolve('../sold-out')
     },
     {
       from: resolve('../package.json'),
-      to: resolve('../dist')
+      to: resolve('../sold-out')
     },
     {
       from: resolve('../LICENSE'),
-      to: resolve('../dist')
+      to: resolve('../sold-out')
+    },
+    {
+      from: resolve('../site.config.js'),
+      to: resolve('../sold-out')
     }
   ]
 })
@@ -46,7 +46,7 @@ module.exports = {
   },
   output: {
     filename: 'assets/[name].js',
-    path: resolve('../dist/')
+    path: resolve('../sold-out/')
   },
   plugins: [
     new CleanWebpackPlugin(),

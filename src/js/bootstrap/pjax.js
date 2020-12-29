@@ -31,7 +31,7 @@ export default () => {
     // 添加 loading
     const loadingEle = document.createElement('div')
     loadingEle.classList = 'ha__loading position-fixed d-flex flex-column justify-content-center align-items-center animated fade-in'
-    loadingEle.innerHTML = `<img src="/assets/loading.gif" class="loading-image" alt="loading image"><div class="loading-text">正在加载数据中...</div>`
+    loadingEle.innerHTML = `<img src="https://img.alicdn.com/imgextra/i2/2038135983/O1CN01iNJJGW1u4GJGUIqhY_!!2038135983.gif" class="loading-image" alt="loading image"><div class="loading-text">正在加载数据中...</div>`
     document.body.appendChild(loadingEle)
   })
 
