@@ -5,6 +5,9 @@
       color: #{var(--color-text-primary)};
       font-size: 1.5rem;
       padding-bottom: 0;
+      &.site-nav-logo img {
+        width: 8.75rem;
+      }
     }
     .navbar-nav {
       .nav-item {
@@ -27,6 +30,16 @@
       }
       &-search {
         background-color: transparent;
+      }
+    }
+  }
+}
+
+.ha__body.dark {
+  .ha__header {
+    .ha__header-navbar {
+      .blog-name.site-nav-logo img {
+        filter: invert(1);
       }
     }
   }
