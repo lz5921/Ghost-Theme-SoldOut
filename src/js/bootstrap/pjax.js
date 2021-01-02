@@ -36,7 +36,7 @@ export default () => {
   })
 
   // 在Pjax请求完成后触发，无论失败还是成功
-  document.addEventListener('pjax:complete', () => {
+  document.addEventListener('pjax:complete', event => {
     global()
     zoomImage()
     waLine()
@@ -61,6 +61,15 @@ export default () => {
     // // support 百度统计 / google analytics
     if (typeof _hmt !== 'undefined') _hmt.push(['_trackPageview', location.pathname + location.search])
     if (typeof ga !== 'undefined') ga('send', 'pageview', location.pathname + location.search)
+    // header meta 信息替换
+    document.head.querySelectorAll('meta').forEach(block => block.remove())
+    document.head.querySelector('script[type="application/ld+json"]').remove()
+    if (document.head.querySelector('link[rel="amphtml"]') !== null) document.head.querySelector('link[rel="amphtml"]').remove()
+    const tempEle = document.createElement('div')
+    tempEle.innerHTML = event.request.responseText.match(/<head[^>]*>([\s\S]*)<\/head>/)[1]
+    tempEle.querySelectorAll('meta').forEach(block => document.head.appendChild(block))
+    document.head.appendChild(tempEle.querySelector('script[type="application/ld+json"]'))
+    if (tempEle.querySelector('link[rel="amphtml"]') !== null) document.head.appendChild(tempEle.querySelector('link[rel="amphtml"]'))
     // 移除 loading 动画
     setTimeout(() => {
       document.querySelector('.ha__loading').classList.remove('fade-in')

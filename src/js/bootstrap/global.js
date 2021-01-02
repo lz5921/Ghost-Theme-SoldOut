@@ -30,10 +30,15 @@ export default () => {
     }
   })
 
-  // 通知
-  baseToast({
-    content: '本博客最近大升级，如遇到莫名其妙可以在任何文章之下留言反馈！',
-    time: '2020-12-23T23:00:00',
-    key: 'hello'
-  })
+  if (window.localStorage.getItem('helloToastKey') === null) {
+    // 通知
+    baseToast({
+      content: '本博客最近大升级，如遇到莫名其妙可以在任何文章之下留言反馈！',
+      time: '2020-12-23T23:00:00',
+      key: 'helloToastKey'
+    })
+  }
+  if (document.querySelector('.toast-wrapper .helloToastKey .btn-close') !== null) {
+    document.querySelector('.toast-wrapper .helloToastKey .btn-close').onclick = () => window.localStorage.setItem('helloToastKey', true)
+  }
 }

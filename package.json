@@ -1,6 +1,6 @@
 {
-  "name": "sold-theme",
-  "version": "1.0.0",
+  "name": "sold-out",
+  "version": "0.1.1",
   "engines": {
     "ghost-api": "v3"
   },
