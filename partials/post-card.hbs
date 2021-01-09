@@ -1,6 +1,6 @@
 {{!-- 文章列表的每个文章展示元素 --}}
 {{!-- ^is "paged" 判断当前页面是否第一页 --}}
-<article class="col-12 {{^is "paged"}}{{#if @first}}col-lg-12 col-xl-8{{else}}col-md-6 col-xl-4{{/if}}{{else}}col-md-6 col-xl-4{{/is}} {{post_class}}">
+<article class="col-12 {{^is "paged"}}{{#if @first}}col-lg-12 col-xl-8{{else}}col-md-6 col-xl-4{{/if}}{{else}}col-md-6 col-xl-4{{/is}} {{post_class}} post-item">
   <div class="ha__main-post-item {{^is "paged"}}{{#if @first}}ha__main-post-item-big{{else}}ha__main-post-item-normal{{/if}}{{else}}ha__main-post-item-normal{{/is}} h-100 card border-0 shadow rounded overflow-hidden">
     {{^is "paged"}}
       {{#if @first}}
