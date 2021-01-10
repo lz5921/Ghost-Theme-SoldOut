@@ -32,9 +32,15 @@
     margin-top: 4rem;
     a {
       color: #{var(--footer-text-color)};
+      border-bottom: 1px solid #{var(--footer-text-color)};
     }
     p {
       margin: 0;
+      color: #{var(--footer-text-color)};
     }
+  }
+
+  .main-footer-meta {
+    color: #{var(--footer-text-color)};
   }
 }
