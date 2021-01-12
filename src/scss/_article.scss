@@ -221,7 +221,7 @@
         position: relative;
       }
       p img {
-        max-width: 31.25rem;
+        max-width: 15.75rem;
       }
       .pre-block-loading {
         position: absolute;
@@ -314,6 +314,9 @@
         font-size: 1rem;
         &.ha__main-article-content-default {
           font-size: 1.2rem;
+        }
+        p img {
+          max-width: 31.25rem;
         }
       }
     }
