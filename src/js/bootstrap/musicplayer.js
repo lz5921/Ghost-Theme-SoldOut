@@ -87,10 +87,10 @@ export default () => {
       playerWrapper.className = 'player-wrapper'
       document.querySelector('body').appendChild(playerWrapper)
 
-      new APlayer({
+      window.aplayer = new APlayer({
         container: document.getElementById('player'),
         fixed: true,
-        lrcType: 1,
+        lrcType: 0,
         theme: '#ad7a86',
         order: 'list',
         autoplay: false,

@@ -14,6 +14,7 @@
       font-size: 1rem;
       &.ha__main-article-content-default {
         font-size: 1rem;
+        font-family: georgia,serif,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
       }
 
       & > ol:first-child,
@@ -221,7 +222,7 @@
         position: relative;
       }
       p img {
-        max-width: 15.75rem;
+        max-width: 80%;
       }
       .pre-block-loading {
         position: absolute;
@@ -316,7 +317,7 @@
           font-size: 1.2rem;
         }
         p img {
-          max-width: 31.25rem;
+          max-width: 60%;
         }
       }
     }

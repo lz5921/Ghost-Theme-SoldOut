@@ -2,4 +2,9 @@
   .v[data-class=v] a {
     color: #{var(--color-text-primary)};
   }
+  .v[data-class=v] .vcards .vcard .vcontent img {
+    position: relative;
+    top: -6px;
+    width: 24px;
+  }
 }

@@ -4,7 +4,7 @@ export default () => {
   loadScripts([
     {
       name: 'waline-js',
-      path: 'https://cdn.jsdelivr.net/npm/@waline/client@0.14.3/dist/Waline.min.js'
+      path: 'https://cdn.jsdelivr.net/npm/@waline/client@0.14.7/dist/Waline.min.js'
     }
   ]).then(() => {
     new Waline({
