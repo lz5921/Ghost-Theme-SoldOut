@@ -12,7 +12,7 @@ import pagination from './bootstrap/pagination'
 import postShare from './bootstrap/post-share'
 import templateLinks from './bootstrap/template-links'
 import waLine from './bootstrap/waline'
-import musicPlayer from './bootstrap/musicplayer'
+// import musicPlayer from './bootstrap/musicplayer'
 import global from './bootstrap/global'
 import zoomImage from './bootstrap/post-image'
 
@@ -21,7 +21,7 @@ import zoomImage from './bootstrap/post-image'
 smoothScroll.polyfill()
 
 prefersColorScheme()
-musicPlayer()
+// musicPlayer()
 
 global()
 zoomImage()
